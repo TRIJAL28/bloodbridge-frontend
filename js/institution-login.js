@@ -1,4 +1,4 @@
-const API = 'http://localhost:5000/api';
+const API = 'https://bloodbridge-backend.onrender.com/api';
 
 // If already logged in, go straight to dashboard
 window.addEventListener('DOMContentLoaded', () => {

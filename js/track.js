@@ -1,4 +1,4 @@
-const API = 'http://localhost:5000/api';
+const API = 'https://bloodbridge-backend.onrender.com/api';
 let refreshInterval = null;
 
 // On page load — check if we have a saved request ID

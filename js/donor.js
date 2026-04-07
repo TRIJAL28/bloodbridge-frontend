@@ -1,4 +1,4 @@
-const API = 'http://localhost:5000/api';
+const API = 'https://bloodbridge-backend.onrender.com/api';
 
 async function registerDonor() {
   const name       = document.getElementById('name').value.trim();
