@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Institution Login — BloodBridge</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/institution.css"/>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Blood<span>Bridge</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="search.html">Find Blood</a></li>
+      <li><a href="institution-register.html">Register Institution</a></li>
+    </ul>
+    <button class="nav-cta" onclick="window.location.href='request.html'">Emergency →</button>
+  </nav>
+
+  <div class="page-hero">
+    <p class="section-label">Institutions</p>
+    <h1 class="section-title">Login to your <strong>dashboard</strong></h1>
+    <p style="color:var(--muted);margin-top:12px;font-size:15px">
+      Manage inventory, respond to requests, view analytics.
+    </p>
+  </div>
+
+  <div class="login-wrap">
+    <div class="form-card">
+
+      <div class="form-group">
+        <label>Email *</label>
+        <input type="email" id="email" placeholder="your@email.com"/>
+      </div>
+
+      <div class="form-group">
+        <label>Password *</label>
+        <input type="password" id="password" placeholder="Your password"/>
+      </div>
+
+      <button class="submit-btn" id="submitBtn" onclick="loginInstitution()">
+        Login
+      </button>
+
+    </div>
+
+    <div class="switch-link">
+      Not registered yet? <a href="institution-register.html">Register your institution →</a>
+    </div>
+  </div>
+
+  <script src="js/institution-login.js"></script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BloodBridge — Connecting Lives</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-logo">Blood<span>Bridge</span></div>
+    <ul class="nav-links">
+      <li><a href="#problem">Why us</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#globe-section">Coverage</a></li>
+      <li><a href="#institution">For institutions</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('emergency').scrollIntoView({behavior:'smooth'})">
+      Emergency →
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+      <h1 class="hero-title">Blood<span>Bridge</span></h1>
+      <p class="hero-tagline">Connecting patients · donors · hospitals · blood banks</p>
+      <div class="hero-buttons">
+        <a href="search.html" class="btn-primary">Find Blood Now</a>
+        <a href="donor-register.html" class="btn-outline">Register as Donor</a>
+      </div>
+    </div>
+    <div class="scroll-hint">scroll</div>
+  </section>
+
+  <!-- PROBLEM STATS -->
+  <div id="problem">
+    <div class="inner">
+      <p class="section-label">The problem</p>
+      <h2 class="section-title">Blood shortage is a <strong>silent crisis</strong></h2>
+      <div class="divider"></div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">38,000+</div>
+          <div class="stat-label">Units of blood needed every single day across India</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">50%</div>
+          <div class="stat-label">Of emergency requests go unfulfilled in Tier 2/3 cities</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">4 mins</div>
+          <div class="stat-label">Average time wasted just finding the right donor or blood bank</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <p class="section-label">How it works</p>
+    <h2 class="section-title">Built for <strong>every side</strong> of the equation</h2>
+    <div class="divider"></div>
+    <div class="cards-grid">
+
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="flip-icon">🩸</div>
+            <h3>Patient / Family</h3>
+            <p>Find blood in under 30 seconds. No login required. Just your blood group and city.</p>
+            <span class="flip-hint">tap to see features →</span>
+          </div>
+          <div class="flip-back">
+            <h3>What you can do</h3>
+            <ul>
+              <li>Search live blood inventory by group + city</li>
+              <li>Post an emergency request instantly</li>
+              <li>Track your request status in real time</li>
+              <li>Get contact details of responding institution</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="flip-icon">💉</div>
+            <h3>Individual Donor</h3>
+            <p>Register once. Toggle your availability. Get alerted when someone nearby needs your blood type.</p>
+            <span class="flip-hint">tap to see features →</span>
+          </div>
+          <div class="flip-back">
+            <h3>What you can do</h3>
+            <ul>
+              <li>Register with blood group and city</li>
+              <li>Toggle availability on/off anytime</li>
+              <li>Receive SMS alerts for matching requests</li>
+              <li>View your full donation history</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="flip-icon">🏥</div>
+            <h3>Blood Bank / Hospital</h3>
+            <p>Manage live inventory. Receive emergency requests. Respond with one click.</p>
+            <span class="flip-hint">tap to see features →</span>
+          </div>
+          <div class="flip-back">
+            <h3>What you can do</h3>
+            <ul>
+              <li>Manage live blood group inventory</li>
+              <li>Receive and accept emergency requests</li>
+              <li>View full request history and analytics</li>
+              <li>Accept walk-in donors directly</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COUNTER -->
+  <div id="counter">
+    <div class="inner">
+      <p class="section-label">Impact so far</p>
+      <h2 class="section-title">Numbers that <strong>matter</strong></h2>
+      <div class="divider"></div>
+      <div class="counter-grid">
+        <div class="counter-item">
+          <div class="counter-number" data-target="1248">0</div>
+          <div class="counter-label">Donors registered</div>
+        </div>
+        <div class="counter-item">
+          <div class="counter-number" data-target="42">0</div>
+          <div class="counter-label">Cities covered</div>
+        </div>
+        <div class="counter-item">
+          <div class="counter-number" data-target="287">0</div>
+          <div class="counter-label">Lives helped</div>
+        </div>
+        <div class="counter-item">
+          <div class="counter-number" data-target="31">0</div>
+          <div class="counter-label">Institutions onboard</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBE -->
+  <div id="globe-section">
+    <canvas id="globe-canvas"></canvas>
+    <div class="globe-text">
+      <p class="section-label">Coverage</p>
+      <h2 class="section-title">Live across India's <strong>heartland</strong></h2>
+      <div class="divider"></div>
+      <p>Not just metros. BloodBridge is built specifically for Tier 2 and Tier 3 cities where blood shortage is most severe and existing apps simply don't work.</p>
+      <p>From Mathura to Patna, Agra to Bhopal — we're where the need is greatest.</p>
+      <a href="search.html" class="btn-primary">Search in your city →</a>
+    </div>
+  </div>
+
+  <!-- EMERGENCY CTA -->
+  <div id="emergency">
+    <div class="inner">
+      <h2>Someone needs blood <strong>right now.</strong></h2>
+      <p>It takes 30 seconds to post a request. It could save a life in 30 minutes.</p>
+      <a href="request.html" class="btn-emergency">Post Emergency Request →</a>
+    </div>
+  </div>
+
+  <!-- INSTITUTION -->
+  <div id="institution">
+    <div class="institution-text">
+      <p class="section-label">For institutions</p>
+      <h2 class="section-title">A full dashboard for <strong>blood banks & hospitals</strong></h2>
+      <div class="divider"></div>
+      <p>Purpose-built for institutions that deal with blood every day. Manage your inventory, respond to emergencies, and track every request — all in one place.</p>
+      <ul class="feature-list">
+        <li>Live blood group inventory management</li>
+        <li>Incoming emergency request panel</li>
+        <li>Monthly demand analytics with charts</li>
+        <li>One-click request acceptance</li>
+        <li>Full request history log</li>
+      </ul>
+      <a href="institution-register.html" class="btn-primary">Register your institution →</a>
+    </div>
+    <canvas id="bar-canvas"></canvas>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Blood<span>Bridge</span></div>
+      <ul class="footer-links">
+        <li><a href="search.html">Find Blood</a></li>
+        <li><a href="donor-register.html">Register Donor</a></li>
+        <li><a href="institution-register.html">For Institutions</a></li>
+        <li><a href="request.html">Emergency</a></li>
+      </ul>
+      <p class="footer-tagline">Built for India's Tier 2/3 cities</p>
+    </div>
+  </footer>
+
+  <!-- LIBRARIES first, then our code -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

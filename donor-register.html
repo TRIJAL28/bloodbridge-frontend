@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register as Donor — BloodBridge</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/donor.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="nav-logo">Blood<span>Bridge</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="search.html">Find Blood</a></li>
+      <li><a href="request.html">Emergency</a></li>
+    </ul>
+    <button class="nav-cta" onclick="window.location.href='request.html'">Emergency →</button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="section-label">Donors</p>
+    <h1 class="section-title">Register as a <strong>blood donor</strong></h1>
+    <p style="color:var(--muted);margin-top:12px;font-size:15px">
+      Takes 30 seconds. You could save a life tomorrow.
+    </p>
+  </div>
+
+  <div class="donor-wrap">
+
+    <!-- WHY DONATE -->
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">⏱️</div>
+        <div class="why-title">30 seconds</div>
+        <div class="why-desc">That's all it takes to register and be available to save a life.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📱</div>
+        <div class="why-title">SMS alerts</div>
+        <div class="why-desc">We'll notify you only when someone nearby needs your exact blood type.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔄</div>
+        <div class="why-title">You're in control</div>
+        <div class="why-desc">Toggle your availability on or off anytime from your dashboard.</div>
+      </div>
+    </div>
+
+    <!-- FORM CARD -->
+    <div class="form-card" id="formCard">
+
+      <div class="info-note">
+        <strong>Your phone number is your identity.</strong> It's shown to patients
+        who need your blood group so they can contact you directly. We never share
+        it for any other purpose.
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" id="name" placeholder="Your name"/>
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" id="phone" placeholder="10-digit number"/>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Blood Group *</label>
+          <select id="bloodGroup">
+            <option value="">Select your group</option>
+            <option>A+</option><option>A-</option>
+            <option>B+</option><option>B-</option>
+            <option>O+</option><option>O-</option>
+            <option>AB+</option><option>AB-</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>City *</label>
+          <input type="text" id="city" placeholder="Your city"/>
+        </div>
+      </div>
+
+      <button class="submit-btn" id="submitBtn" onclick="registerDonor()">
+        Register as Donor
+      </button>
+
+    </div>
+
+    <!-- SUCCESS CARD -->
+    <div class="success-card" id="successCard">
+      <div class="success-icon">🩸</div>
+      <h2>You're registered!</h2>
+      <p>Thank you for signing up as a donor. You are now visible to patients searching for your blood group in your city.</p>
+      <p>Save your Donor ID — you'll need it to manage your profile:</p>
+      <div class="donor-id" id="donorIdDisplay"></div>
+      <div class="success-actions">
+        <a href="index.html" class="btn-primary">Back to home</a>
+        <a href="search.html" class="btn-outline">Search for blood</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/donor.js"></script>
+</body>
+</html>

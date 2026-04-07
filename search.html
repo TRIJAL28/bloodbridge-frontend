@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Find Blood — BloodBridge</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/search.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="nav-logo">Blood<span>Bridge</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="donor-register.html">Register as Donor</a></li>
+      <li><a href="institution-register.html">For Institutions</a></li>
+    </ul>
+    <button class="nav-cta" onclick="window.location.href='request.html'">Emergency →</button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="section-label">Find Blood</p>
+    <h1 class="section-title">Search live inventory & <strong>available donors</strong></h1>
+    <p style="color:var(--muted);margin-top:12px;font-size:15px">
+      Results update in real time from blood banks, hospitals, and registered donors.
+    </p>
+  </div>
+
+  <!-- SEARCH BOX -->
+  <div class="search-box">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Blood Group</label>
+        <select id="bloodGroup">
+          <option value="">Select group</option>
+          <option>A+</option><option>A-</option>
+          <option>B+</option><option>B-</option>
+          <option>O+</option><option>O-</option>
+          <option>AB+</option><option>AB-</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" id="city" placeholder="e.g. Mathura"/>
+      </div>
+    </div>
+    <button class="search-btn" onclick="doSearch()">Search Now</button>
+  </div>
+
+  <!-- EMERGENCY BAR -->
+  <div class="emergency-bar" id="emergencyBar" style="display:none">
+    <p><strong>Can't find what you need?</strong> Post an emergency request — blood banks and donors will be alerted instantly.</p>
+    <a href="request.html" class="btn-primary" style="padding:10px 20px;font-size:14px">Post Request →</a>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results-section" id="resultsSection" style="display:none">
+    <div class="results-header">
+      <span class="results-title" id="resultsTitle">Results</span>
+      <span class="results-count" id="resultsCount">0 found</span>
+    </div>
+    <div class="tabs">
+      <button class="tab-btn active" id="tabDonors" onclick="switchTab('donors')">Individual Donors</button>
+      <button class="tab-btn" id="tabInstitutions" onclick="switchTab('institutions')">Blood Banks & Hospitals</button>
+    </div>
+    <div id="donorsGrid" class="results-grid"></div>
+    <div id="institutionsGrid" class="results-grid" style="display:none"></div>
+  </div>
+
+  <!-- INITIAL STATE -->
+  <div class="state-msg" id="initialState">
+    <span>🔍</span>
+    Select a blood group and city above to see available donors and institutions.
+  </div>
+
+  <script src="js/search.js"></script>
+</body>
+</html>

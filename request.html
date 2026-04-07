@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Post Emergency Request — BloodBridge</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/request.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="nav-logo">Blood<span>Bridge</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="search.html">Find Blood</a></li>
+      <li><a href="donor-register.html">Register as Donor</a></li>
+    </ul>
+    <button class="nav-cta" onclick="window.location.href='track.html'">Track Request →</button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="section-label">Emergency</p>
+    <h1 class="section-title">Post a <strong>blood request</strong></h1>
+    <p style="color:var(--muted);margin-top:12px;font-size:15px">
+      Fill this in 30 seconds. Nearby blood banks and donors will be alerted instantly.
+    </p>
+  </div>
+
+  <!-- FORM WRAP -->
+  <div class="request-form-wrap">
+
+    <!-- FORM CARD -->
+    <div class="form-card" id="formCard">
+
+      <div class="info-note">
+        <strong>No login required.</strong> Just fill in the patient details and we'll
+        connect you with available blood banks, hospitals, and donors in your city.
+      </div>
+
+      <!-- Patient name + blood group -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>Patient Name *</label>
+          <input type="text" id="patientName" placeholder="Full name"/>
+        </div>
+        <div class="form-group">
+          <label>Blood Group *</label>
+          <select id="bloodGroup">
+            <option value="">Select</option>
+            <option>A+</option><option>A-</option>
+            <option>B+</option><option>B-</option>
+            <option>O+</option><option>O-</option>
+            <option>AB+</option><option>AB-</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- City + Hospital -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>City *</label>
+          <input type="text" id="city" placeholder="e.g. Mathura"/>
+        </div>
+        <div class="form-group">
+          <label>Hospital Name *</label>
+          <input type="text" id="hospital" placeholder="Where blood is needed"/>
+        </div>
+      </div>
+
+      <!-- Contact + Units -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>Contact Phone *</label>
+          <input type="tel" id="contactPhone" placeholder="10-digit number"/>
+        </div>
+        <div class="form-group">
+          <label>Units Needed</label>
+          <input type="number" id="unitsNeeded" value="1" min="1" max="10"/>
+        </div>
+      </div>
+
+      <!-- Urgency -->
+      <div class="form-group">
+        <label>Urgency Level</label>
+        <div class="urgency-row">
+          <button
+            class="urgency-btn"
+            id="urgency-normal"
+            onclick="selectUrgency('normal')">
+            Normal
+          </button>
+          <button
+            class="urgency-btn critical"
+            id="urgency-critical"
+            onclick="selectUrgency('critical')">
+            🚨 Critical
+          </button>
+        </div>
+      </div>
+
+      <button class="submit-btn" id="submitBtn" onclick="submitRequest()">
+        Post Emergency Request
+      </button>
+
+    </div>
+
+    <!-- SUCCESS CARD (hidden until submitted) -->
+    <div class="success-card" id="successCard">
+      <div class="success-icon">✅</div>
+      <h2>Request posted successfully!</h2>
+      <p>Your emergency request has been submitted. Nearby blood banks, hospitals, and donors are being alerted right now.</p>
+      <p>Save your Request ID to track the status:</p>
+      <div class="request-id" id="requestIdDisplay"></div>
+      <div class="success-actions">
+        <button class="btn-primary" onclick="goToTrack()">Track this request →</button>
+        <a href="search.html" class="btn-outline">Also search manually</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/request.js"></script>
+</body>
+</html>

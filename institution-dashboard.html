@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard — BloodBridge</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/dashboard.css"/>
+</head>
+<body>
+
+<div class="dash-layout">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+
+    <div class="sidebar-logo">Blood<span>Bridge</span></div>
+
+    <div class="sidebar-inst">
+      <div class="sidebar-inst-name" id="sidebarName">Institution</div>
+      <div class="sidebar-inst-type" id="sidebarType"></div>
+      <div class="sidebar-inst-city" id="sidebarCity"></div>
+    </div>
+
+    <a class="nav-item active" id="nav-overview" onclick="showSection('overview')">
+      <span class="nav-icon">📊</span> Overview
+    </a>
+    <a class="nav-item" id="nav-inventory" onclick="showSection('inventory')">
+      <span class="nav-icon">🩸</span> Inventory
+    </a>
+    <a class="nav-item" id="nav-requests" onclick="showSection('requests')">
+      <span class="nav-icon">🚨</span> Requests
+    </a>
+    <a class="nav-item" id="nav-analytics" onclick="showSection('analytics')">
+      <span class="nav-icon">📈</span> Analytics
+    </a>
+
+    <div class="sidebar-bottom">
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <main class="dash-main">
+
+    <div class="dash-header">
+      <h1 class="dash-title" id="dashTitle">Dashboard</h1>
+    </div>
+
+    <!-- ══ OVERVIEW ══ -->
+    <div class="dash-section active" id="section-overview">
+
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-card-label">Total units</div>
+          <div class="stat-card-value" id="statTotalUnits">—</div>
+          <div class="stat-card-sub">across all blood groups</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Open requests</div>
+          <div class="stat-card-value" id="statOpenRequests">—</div>
+          <div class="stat-card-sub">in your city right now</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Groups in stock</div>
+          <div class="stat-card-value" id="statInStock">—</div>
+          <div class="stat-card-sub">blood groups available</div>
+        </div>
+      </div>
+
+      <div class="quick-grid">
+        <div class="quick-card">
+          <p class="quick-card-title">Quick actions</p>
+          <button class="quick-action-btn primary" onclick="showSection('inventory')">
+            → Update blood inventory
+          </button>
+          <button class="quick-action-btn" onclick="showSection('requests')">
+            → View incoming requests
+          </button>
+          <button class="quick-action-btn" onclick="showSection('analytics')">
+            → View analytics
+          </button>
+        </div>
+        <div class="quick-card">
+          <p class="quick-card-title">How it works</p>
+          <ul class="how-list">
+            <li><span>1.</span> Update your blood inventory so patients can find you</li>
+            <li><span>2.</span> Check incoming requests from patients in your city</li>
+            <li><span>3.</span> Click Accept to respond — patient gets notified instantly</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══ INVENTORY ══ -->
+    <div class="dash-section" id="section-inventory">
+
+      <h2 style="font-size:20px;font-weight:400;margin-bottom:8px">
+        Blood inventory —
+        <strong style="color:var(--red-bright)">update your stock</strong>
+      </h2>
+      <p style="color:var(--muted);font-size:14px;margin-bottom:24px">
+        Enter the number of units available for each blood group.
+        Patients searching in your city will see this live.
+      </p>
+
+      <div class="inventory-grid">
+
+        <div class="inv-card">
+          <div class="inv-group">A+</div>
+          <input class="inv-input" type="number" id="inv-Aplus" min="0" value="0"/>
+          <div class="inv-label">units</div>
+        </div>
+
+        <div class="inv-card">
+          <div class="inv-group">A−</div>
+          <input class="inv-input" type="number" id="inv-Aminus" min="0" value="0"/>
+          <div class="inv-label">units</div>
+        </div>
+
+        <div class="inv-card">
+          <div class="inv-group">B+</div>
+          <input class="inv-input" type="number" id="inv-Bplus" min="0" value="0"/>
+          <div class="inv-label">units</div>
+        </div>
+
+        <div class="inv-card">
+          <div class="inv-group">B−</div>
+          <input class="inv-input" type="number" id="inv-Bminus" min="0" value="0"/>
+          <div class="inv-label">units</div>
+        </div>
+
+        <div class="inv-card">
+          <div class="inv-group">O+</div>
+          <input class="inv-input" type="number" id="inv-Oplus" min="0" value="0"/>
+          <div class="inv-label">units</div>
+        </div>
+
+        <div class="inv-card">
+          <div class="inv-group">O−</div>
+          <input class="inv-input" type="number" id="inv-Ominus" min="0" value="0"/>
+          <div class="inv-label">units</div>
+        </div>
+
+        <div class="inv-card">
+          <div class="inv-group">AB+</div>
+          <input class="inv-input" type="number" id="inv-ABplus" min="0" value="0"/>
+          <div class="inv-label">units</div>
+        </div>
+
+        <div class="inv-card">
+          <div class="inv-group">AB−</div>
+          <input class="inv-input" type="number" id="inv-ABminus" min="0" value="0"/>
+          <div class="inv-label">units</div>
+        </div>
+
+      </div>
+
+      <button class="save-inv-btn" onclick="saveInventory()">
+        Save Inventory
+      </button>
+
+    </div>
+
+    <!-- ══ REQUESTS ══ -->
+    <div class="dash-section" id="section-requests">
+
+      <div class="requests-wrap">
+        <div class="requests-header">
+          <h3>Incoming emergency requests — your city</h3>
+          <button class="refresh-btn" onclick="loadRequests()">↻ Refresh</button>
+        </div>
+
+        <div style="overflow-x:auto">
+          <table class="req-table">
+            <thead>
+              <tr>
+                <th>Blood</th>
+                <th>Patient</th>
+                <th>City</th>
+                <th>Hospital</th>
+                <th>Units</th>
+                <th>Urgency</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="requestsTbody">
+              <tr class="empty-row">
+                <td colspan="7">Loading requests...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══ ANALYTICS ══ -->
+    <div class="dash-section" id="section-analytics">
+
+      <h2 style="font-size:20px;font-weight:400;margin-bottom:24px">
+        Inventory <strong style="color:var(--red-bright)">analytics</strong>
+      </h2>
+
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>Units by blood group</h3>
+          <div class="chart-wrap">
+            <canvas id="chartInventory"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <h3>Blood group distribution</h3>
+          <div class="chart-wrap">
+            <canvas id="chartDistribution"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
+
+<!-- Chart.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<!-- Dashboard logic -->
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Track Request — BloodBridge</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/track.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="nav-logo">Blood<span>Bridge</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="search.html">Find Blood</a></li>
+      <li><a href="request.html">Post Request</a></li>
+    </ul>
+    <button class="nav-cta" onclick="window.location.href='request.html'">Emergency →</button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="section-label">Track</p>
+    <h1 class="section-title">Track your <strong>blood request</strong></h1>
+    <p style="color:var(--muted);margin-top:12px;font-size:15px">
+      Enter your Request ID to see the live status. Updates automatically every 10 seconds.
+    </p>
+  </div>
+
+  <div class="track-wrap">
+
+    <!-- INPUT CARD -->
+    <div class="track-input-card">
+      <p>Your Request ID was shown after you submitted the emergency form. It was also saved in your browser automatically.</p>
+      <div class="input-row">
+        <input
+          type="text"
+          id="requestIdInput"
+          placeholder="Paste your Request ID here..."
+        />
+        <button class="track-btn" onclick="trackRequest()">Track →</button>
+      </div>
+    </div>
+
+    <!-- STATE MESSAGE -->
+    <div class="state-msg" id="stateMsg" style="display:none"></div>
+
+    <!-- RESULT CARD -->
+    <div class="result-card" id="resultCard">
+
+      <!-- Status + time -->
+      <div class="status-row">
+        <span class="status-badge open" id="statusBadge">Open</span>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <span class="refresh-badge" id="refreshBadge" style="display:none">
+            <span class="refresh-dot"></span>
+            Live updates on
+          </span>
+          <span class="posted-time" id="postedTime"></span>
+        </div>
+      </div>
+
+      <!-- Progress steps -->
+      <div class="progress-wrap">
+        <div class="progress-label">Request progress</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-dot active" id="step-open">1</div>
+            <div class="step-label">Posted</div>
+          </div>
+          <div class="step-line" id="line-0"></div>
+          <div class="step">
+            <div class="step-dot" id="step-accepted">2</div>
+            <div class="step-label">Accepted</div>
+          </div>
+          <div class="step-line" id="line-1"></div>
+          <div class="step">
+            <div class="step-dot" id="step-fulfilled">3</div>
+            <div class="step-label">Fulfilled</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accepted by (shown only when accepted) -->
+      <div class="accepted-box" id="acceptedBox">
+        <h3>Responding institution</h3>
+        <div class="accepted-name" id="acceptedName"></div>
+        <div class="accepted-detail" id="acceptedType"></div>
+        <div class="accepted-detail" id="acceptedCity"></div>
+        <div class="accepted-detail" style="margin-top:8px">
+          Call: <a href="#" id="acceptedPhone"></a>
+        </div>
+      </div>
+
+      <!-- Details grid -->
+      <div class="detail-grid">
+        <div class="detail-item">
+          <div class="detail-label">Patient</div>
+          <div class="detail-value" id="detailPatient">—</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Blood Group</div>
+          <div class="detail-value" id="detailBlood">—</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">City</div>
+          <div class="detail-value" id="detailCity">—</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Hospital</div>
+          <div class="detail-value" id="detailHospital">—</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Units needed</div>
+          <div class="detail-value" id="detailUnits">—</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Contact</div>
+          <div class="detail-value" id="detailContact">—</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Urgency</div>
+          <div class="detail-value" id="detailUrgency">—</div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="track-actions">
+        <a href="search.html" class="btn-primary">Also search manually →</a>
+        <a href="request.html" class="btn-outline">Post new request</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/track.js"></script>
+</body>
+</html>
